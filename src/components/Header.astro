@@ -1,0 +1,85 @@
+---
+import { Image } from "astro:assets";
+import emblem from "../assets/images/logo/emblem-transparent.png";
+import { nav, site } from "../data/site";
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-brand-sage/40 bg-brand-cream/95 backdrop-blur">
+	<div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
+		<a href="/" class="flex items-center gap-3">
+			<Image src={emblem} alt="" width={44} height={44} class="h-10 w-10 shrink-0" />
+			<span class="font-heading text-lg font-semibold tracking-wide text-brand-navy sm:text-xl">
+				{site.name}
+			</span>
+		</a>
+
+		<nav class="hidden items-center gap-6 lg:flex">
+			{
+				nav.map((item) => (
+					<a
+						href={item.href}
+						aria-current={currentPath === item.href ? "page" : undefined}
+						class:list={[
+							"font-heading text-sm font-medium tracking-wide text-brand-navy transition-colors hover:text-brand-rust",
+							currentPath === item.href && "text-brand-rust",
+						]}
+					>
+						{item.label}
+					</a>
+				))
+			}
+		</nav>
+
+		<a
+			href="/book"
+			class="hidden rounded-full bg-brand-orange px-5 py-2 font-heading text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-rust hover:text-brand-cream lg:inline-flex"
+		>
+			Book a Massage
+		</a>
+
+		<button
+			id="menu-toggle"
+			type="button"
+			aria-expanded="false"
+			aria-controls="mobile-nav"
+			class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-brand-navy/30 text-brand-navy lg:hidden"
+		>
+			<span class="sr-only">Open menu</span>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+			</svg>
+		</button>
+	</div>
+
+	<nav id="mobile-nav" class="hidden flex-col gap-1 border-t border-brand-sage/40 bg-brand-cream px-6 py-4 lg:hidden">
+		{
+			nav.map((item) => (
+				<a
+					href={item.href}
+					class="rounded-md px-2 py-2 font-heading text-base font-medium text-brand-navy hover:bg-brand-sage/20"
+				>
+					{item.label}
+				</a>
+			))
+		}
+		<a
+			href="/book"
+			class="mt-2 rounded-full bg-brand-orange px-5 py-2 text-center font-heading text-sm font-semibold text-brand-navy"
+		>
+			Book a Massage
+		</a>
+	</nav>
+</header>
+
+<script>
+	const toggle = document.getElementById("menu-toggle");
+	const mobileNav = document.getElementById("mobile-nav");
+
+	toggle?.addEventListener("click", () => {
+		const isOpen = mobileNav?.classList.toggle("flex");
+		mobileNav?.classList.toggle("hidden", !isOpen);
+		toggle.setAttribute("aria-expanded", String(Boolean(isOpen)));
+	});
+</script>

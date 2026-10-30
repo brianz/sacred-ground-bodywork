@@ -1,0 +1,103 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import headshot from "../assets/images/jayme-headshot.jpg";
+import river from "../assets/images/jayme-river.jpg";
+---
+
+<Layout
+	title="About Jayme"
+	description="Meet Jayme Coleman, LMT — a Fort Collins-based massage therapist and graduate of the Berkana Institute of Massage Therapy."
+>
+	<!-- Intro -->
+	<section class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+		<div class="grid items-center gap-12 md:grid-cols-2">
+			<Image
+				src={headshot}
+				alt="Jayme Coleman, LMT, smiling outdoors against a warm adobe wall"
+				width={900}
+				height={1125}
+				class="aspect-[4/5] w-full rounded-3xl object-cover shadow-md"
+			/>
+			<div>
+				<p class="font-heading text-sm font-semibold tracking-[0.2em] text-brand-rust uppercase">
+					About Jayme
+				</p>
+				<h1 class="mt-4 font-heading text-4xl font-semibold text-brand-navy sm:text-5xl">
+					I'm a massage therapist, and I believe your body deserves care.
+				</h1>
+				<p class="mt-6 font-body leading-relaxed text-brand-navy/80">
+					I'm a massage therapist and a graduate of the Berkana Institute of Massage
+					Therapy. I came to this work after 14 years at a desk, where I felt the toll poor
+					body mechanics took on me, physically and mentally. That pushed me toward a path
+					of wellness, and toward helping others reconnect with their own well-being.
+				</p>
+				<p class="mt-4 font-body leading-relaxed text-brand-navy/80">
+					Our bodies carry us through this life, and it's easy to forget about them. Massage
+					helps the body connect with itself again, and once that happens, real healing can
+					start. For all the hard work your body does for you, it deserves to be cared for.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Mission & vision -->
+	<section class="bg-brand-navy text-brand-cream">
+		<div class="mx-auto grid max-w-6xl gap-10 px-6 py-20 sm:py-24 md:grid-cols-2">
+			<div>
+				<h2 class="font-heading text-sm font-semibold tracking-[0.2em] text-brand-orange uppercase">
+					Mission
+				</h2>
+				<p class="mt-5 font-body text-xl leading-relaxed italic sm:text-2xl">
+					Sacred Ground Bodywork exists to care for the bodies that carry us through life.
+					Whether you build Colorado's hospitals or you're just getting through a long week,
+					your body works hard for you, and it deserves care in return. I bring massage to
+					my home studio in Fort Collins, to your door across northern Colorado and the
+					Denver metro, and to construction sites, so the people who work hard get the care
+					they've earned.
+				</p>
+			</div>
+			<div>
+				<h2 class="font-heading text-sm font-semibold tracking-[0.2em] text-brand-orange uppercase">
+					Vision
+				</h2>
+				<p class="mt-5 font-body text-xl leading-relaxed italic sm:text-2xl">
+					To be the massage therapist people in northern Colorado and the Denver metro trust
+					with their care, whether they're booking a session for themselves or bringing it
+					to a crew on the jobsite.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- A bit more / life outside work -->
+	<section class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+		<div class="grid items-center gap-12 md:grid-cols-2">
+			<div class="order-2 md:order-1">
+				<h2 class="font-heading text-3xl font-semibold text-brand-navy sm:text-4xl">
+					A Bit More About Me
+				</h2>
+				<p class="mt-5 font-body leading-relaxed text-brand-navy/80">
+					I'm a Colorado native living in Fort Collins. When I'm not working, you'll find me
+					outside hiking, running, biking, or taking my dogs on wild adventures. My husband
+					is a farmer (I adore him), and we both believe it's our job to care for each other
+					and the earth.
+				</p>
+				<p class="mt-4 font-body leading-relaxed text-brand-navy/80">
+					I once sold everything I owned to volunteer around the world for 18 months, and I
+					make a mean sourdough. I love people, spontaneous adventures, and simplicity. Most
+					of all, I love connecting with people and helping them live their best lives.
+				</p>
+				<Button href="/book" variant="secondary" class="mt-6">Book a Session</Button>
+			</div>
+			<Image
+				src={river}
+				alt="Jayme with a friend along a Colorado river, surrounded by autumn hills"
+				width={1200}
+				height={900}
+				class="order-1 aspect-[4/3] w-full rounded-3xl object-cover shadow-md md:order-2"
+			/>
+		</div>
+	</section>
+</Layout>

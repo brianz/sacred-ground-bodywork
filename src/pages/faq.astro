@@ -1,0 +1,84 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import { site } from "../data/site";
+
+const faqs = [
+	{
+		q: "What should I expect at my first session?",
+		a: "We'll start with a quick conversation about what's going on in your body, what you're hoping to get out of the session, and anything I should know (injuries, sensitive areas, pressure preference). From there, I'll step out so you can undress to your comfort level and get settled on the table before we begin.",
+	},
+	{
+		q: "Do I need to undress completely?",
+		a: "No. Undress to whatever level you're comfortable with. You're always fully draped with a sheet or blanket except for the area I'm actively working on.",
+	},
+	{
+		q: "Do you come to me, or do I come to you?",
+		a: "Both. I see clients in my home studio in Fort Collins, and I also offer mobile massage, where I bring the table to your home or office anywhere across northern Colorado and the Denver metro.",
+	},
+	{
+		q: "How do I know which type of massage to book?",
+		a: "If you're not sure, start with Swedish massage or just tell me what's bothering you when you reach out — I'm happy to recommend the right fit for your body and goals.",
+	},
+	{
+		q: "What if I need to reschedule or cancel?",
+		a: "Life happens. Just let me know as soon as you can so I can offer your spot to someone else, and we'll find a new time that works.",
+	},
+	{
+		q: "Is massage covered by insurance?",
+		a: "Not typically for general wellness massage. If you have a specific medical referral, ask when you book and I'll let you know what I can provide for documentation.",
+	},
+	{
+		q: "How does onsite massage for construction crews work?",
+		a: "I contract directly with the general contractor, who covers the cost through their employee wellness program. It's free to workers, and no booking or payment is needed on the worker's end. Visit the For Construction Companies page for details.",
+	},
+	{
+		q: "How do I book a session?",
+		a: "Online booking is on its way. For now, email or call and I'll get you scheduled.",
+	},
+];
+---
+
+<Layout
+	title="FAQs"
+	description="Answers to common questions about booking, pricing, and what to expect from a massage session with Sacred Ground Bodywork."
+>
+	<section class="bg-brand-navy text-brand-cream">
+		<div class="mx-auto max-w-3xl px-6 py-20 text-center sm:py-24">
+			<h1 class="font-heading text-4xl font-semibold sm:text-5xl">Frequently Asked Questions</h1>
+			<p class="mt-5 font-body text-lg leading-relaxed text-brand-cream/90">
+				Don't see your question here? Just reach out &mdash; I'm happy to help.
+			</p>
+		</div>
+	</section>
+
+	<section class="mx-auto max-w-3xl px-6 py-20 sm:py-24">
+		<div class="space-y-4">
+			{
+				faqs.map((item) => (
+					<details class="group rounded-2xl border border-brand-sage/50 bg-white/60 p-6 open:bg-white/80">
+						<summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-heading text-lg font-semibold text-brand-navy">
+							{item.q}
+							<span class="shrink-0 text-xl text-brand-rust transition-transform duration-200 group-open:rotate-45">
+								+
+							</span>
+						</summary>
+						<p class="mt-4 font-body leading-relaxed text-brand-navy/80">{item.a}</p>
+					</details>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="bg-brand-sage/20">
+		<div class="mx-auto max-w-3xl px-6 py-16 text-center sm:py-20">
+			<h2 class="font-heading text-2xl font-semibold text-brand-navy sm:text-3xl">
+				Still have questions?
+			</h2>
+			<div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+				<Button href={site.mailtoGeneral} variant="primary">Email {site.email}</Button>
+				<Button href="/book" variant="secondary">Go to Book / Contact</Button>
+			</div>
+		</div>
+	</section>
+</Layout>

@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@import "@fontsource/lora/400.css";
+@import "@fontsource/lora/500.css";
+@import "@fontsource/lora/600.css";
+@import "@fontsource/lora/700.css";
+@import "@fontsource/lora/400-italic.css";
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/500.css";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/400-italic.css";
+@import "@fontsource/playfair-display/600-italic.css";
+
+@theme {
+	/* Brand palette — see claude-source/brand-guide.pdf */
+	--color-brand-navy: #3f4e72;
+	--color-brand-orange: #f58e35;
+	--color-brand-rust: #bf4c28;
+	--color-brand-cream: #f1dbc0;
+	--color-brand-sage: #b5c4a0;
+
+	--font-heading: "Lora", ui-serif, Georgia, serif;
+	--font-body: "Playfair Display", ui-serif, Georgia, serif;
+}

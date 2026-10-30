@@ -1,0 +1,135 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import { site } from "../data/site";
+
+const steps = [
+	{
+		title: "We set a schedule",
+		body: "We find a cadence that works for your project — a recurring day each week or month, or a one-time visit for a milestone or tough stretch of the job.",
+	},
+	{
+		title: "I come to the jobsite",
+		body: "I bring a portable table and set up in a break area, trailer, or any quiet corner you can spare. No special equipment or space needed on your end.",
+	},
+	{
+		title: "Workers get 10–20 minute chair or table sessions",
+		body: "Quick, focused sessions that fit around the workday — on the clock or during breaks, whatever works best for your crew.",
+	},
+	{
+		title: "Your wellness program covers the cost",
+		body: "It's free to the worker. I invoice the company directly, so there's nothing for your crew to pay or process.",
+	},
+];
+
+const benefits = [
+	{
+		title: "For your crew",
+		body: "Real relief for the aches that come with physical work — sore backs, tight shoulders, overworked hands — plus a visible sign that their work is valued.",
+	},
+	{
+		title: "For your company",
+		body: "A wellness benefit that's easy to roll out, easy to budget for, and genuinely used. It can support safety and retention goals without adding work for your team.",
+	},
+];
+---
+
+<Layout
+	title="Onsite Massage for Construction Crews"
+	description="Sacred Ground Bodywork partners with general contractors across northern Colorado and the Denver metro to bring onsite massage to construction crews through employee wellness programs."
+>
+	<section class="bg-brand-navy text-brand-cream">
+		<div class="mx-auto max-w-4xl px-6 py-20 text-center sm:py-24">
+			<p class="font-heading text-sm font-semibold tracking-[0.2em] text-brand-orange uppercase">
+				For General Contractors
+			</p>
+			<h1 class="mt-5 font-heading text-4xl font-semibold sm:text-5xl">
+				Onsite Massage for Your Crew
+			</h1>
+			<p class="mt-6 font-body text-lg leading-relaxed text-brand-cream/90">
+				I contract with general contractors to provide onsite massage for crews on large
+				construction projects, paid for through your employee wellness program and free to
+				the people doing the work.
+			</p>
+			<div class="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+				<Button href="#contact" variant="primary">Set Up a Meeting</Button>
+				<Button href={site.mailtoConstruction} variant="outline-light">Email Jayme</Button>
+			</div>
+		</div>
+	</section>
+
+	<!-- How it works -->
+	<section class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+		<h2 class="text-center font-heading text-3xl font-semibold text-brand-navy sm:text-4xl">
+			How It Works on the Jobsite
+		</h2>
+		<div class="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+			{
+				steps.map((step, i) => (
+					<div class="rounded-3xl border border-brand-sage/50 bg-white/60 p-6">
+						<span class="font-heading text-3xl font-semibold text-brand-orange">
+							{String(i + 1).padStart(2, "0")}
+						</span>
+						<h3 class="mt-3 font-heading text-lg font-semibold text-brand-navy">{step.title}</h3>
+						<p class="mt-2 font-body text-sm leading-relaxed text-brand-navy/80">{step.body}</p>
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<!-- Why it matters -->
+	<section class="bg-brand-sage/20">
+		<div class="mx-auto max-w-5xl px-6 py-20 sm:py-24">
+			<h2 class="text-center font-heading text-3xl font-semibold text-brand-navy sm:text-4xl">
+				Why It Matters
+			</h2>
+			<div class="mt-12 grid gap-8 sm:grid-cols-2">
+				{
+					benefits.map((benefit) => (
+						<div class="rounded-3xl bg-white/70 p-8 shadow-sm">
+							<h3 class="font-heading text-xl font-semibold text-brand-navy">{benefit.title}</h3>
+							<p class="mt-3 font-body leading-relaxed text-brand-navy/80">{benefit.body}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- Credibility / about -->
+	<section class="mx-auto max-w-4xl px-6 py-20 text-center sm:py-24">
+		<h2 class="font-heading text-3xl font-semibold text-brand-navy sm:text-4xl">
+			A Professional Partner
+		</h2>
+		<p class="mt-5 font-body leading-relaxed text-brand-navy/80">
+			I'm Jayme Coleman, a licensed massage therapist and graduate of the Berkana Institute of
+			Massage Therapy, based in Fort Collins. I came to this work after years of seeing what
+			physical strain does to a body over time, and built Sacred Ground Bodywork to bring real
+			care to the people who earn it the hardest &mdash; including the crews who build the
+			places we all rely on.
+		</p>
+		<Button href="/about" variant="secondary" class="mt-8">More About Jayme</Button>
+		<p class="mt-10 font-body text-sm text-brand-navy/60">
+			*Pricing for onsite programs is discussed directly with your company, based on crew
+			size, schedule, and scope.
+		</p>
+	</section>
+
+	<!-- Contact -->
+	<section id="contact" class="bg-brand-navy text-brand-cream scroll-mt-20">
+		<div class="mx-auto max-w-3xl px-6 py-20 text-center sm:py-24">
+			<h2 class="font-heading text-3xl font-semibold sm:text-4xl">Let's Set Up a Meeting</h2>
+			<p class="mt-5 font-body text-lg leading-relaxed text-brand-cream/90">
+				Tell me a bit about your project and crew size, and I'll follow up to talk through
+				scheduling and scope.
+			</p>
+			<div class="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+				<Button href={site.mailtoConstruction} variant="primary">
+					Email {site.email}
+				</Button>
+				<Button href={site.phoneHref} variant="outline-light">Call {site.phone}</Button>
+			</div>
+		</div>
+	</section>
+</Layout>

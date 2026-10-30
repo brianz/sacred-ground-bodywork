@@ -1,0 +1,92 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import { services } from "../data/services";
+---
+
+<Layout
+	title="Services & Pricing"
+	description="Swedish, deep tissue, sports massage, hot stone, cupping, Thai massage, myofascial release, and trigger point therapy — available at my Fort Collins home studio or mobile across northern Colorado."
+>
+	<section class="bg-brand-navy text-brand-cream">
+		<div class="mx-auto max-w-4xl px-6 py-20 text-center sm:py-24">
+			<h1 class="font-heading text-4xl font-semibold sm:text-5xl">Services &amp; Pricing</h1>
+			<p class="mt-5 font-body text-lg leading-relaxed text-brand-cream/90">
+				Every body is different, so every session is a little different too. Below are the
+				modalities I offer, in plain language, along with typical session lengths and
+				pricing.
+			</p>
+		</div>
+	</section>
+
+	<section class="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+		<div class="grid gap-8 md:grid-cols-2">
+			{
+				services.map((service) => (
+					<div class="flex flex-col rounded-3xl border border-brand-sage/50 bg-white/60 p-8 shadow-sm">
+						<div class="flex flex-wrap items-start justify-between gap-3">
+							<h2 class="font-heading text-2xl font-semibold text-brand-navy">{service.name}</h2>
+							<div class="flex gap-2">
+								{service.where.map((place) => (
+									<span class="rounded-full bg-brand-sage/30 px-3 py-1 font-heading text-xs font-semibold tracking-wide text-brand-navy uppercase">
+										{place}
+									</span>
+								))}
+							</div>
+						</div>
+						<p class="mt-4 flex-1 font-body leading-relaxed text-brand-navy/80">
+							{service.description}
+						</p>
+						<ul class="mt-6 flex flex-wrap gap-x-6 gap-y-1 border-t border-brand-sage/40 pt-4">
+							{service.pricing.map((tier) => (
+								<li class="font-heading text-sm font-semibold text-brand-rust">
+									{tier.length} &mdash; {tier.price}
+								</li>
+							))}
+						</ul>
+					</div>
+				))
+			}
+		</div>
+
+		<p class="mt-10 text-center font-body text-sm text-brand-navy/60">
+			Prices listed are typical starting rates and may vary based on location and session
+			add-ons. Ask when you book if you have questions.
+		</p>
+	</section>
+
+	<!-- Where I work -->
+	<section class="bg-brand-sage/20">
+		<div class="mx-auto max-w-5xl px-6 py-16 sm:py-20">
+			<h2 class="text-center font-heading text-3xl font-semibold text-brand-navy sm:text-4xl">
+				Where I Work
+			</h2>
+			<div class="mt-10 grid gap-8 sm:grid-cols-2">
+				<div class="rounded-3xl bg-white/70 p-8 shadow-sm">
+					<h3 class="font-heading text-xl font-semibold text-brand-navy">Home Studio</h3>
+					<p class="mt-3 font-body leading-relaxed text-brand-navy/80">
+						A quiet, comfortable space in Fort Collins, set up for you to fully relax and
+						unplug for an hour or two.
+					</p>
+				</div>
+				<div class="rounded-3xl bg-white/70 p-8 shadow-sm">
+					<h3 class="font-heading text-xl font-semibold text-brand-navy">Mobile Massage</h3>
+					<p class="mt-3 font-body leading-relaxed text-brand-navy/80">
+						I bring the table to you &mdash; home, office, or jobsite &mdash; anywhere
+						across northern Colorado and the Denver metro.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="mx-auto max-w-4xl px-6 py-20 text-center sm:py-24">
+		<h2 class="font-heading text-3xl font-semibold text-brand-navy sm:text-4xl">
+			Ready to book?
+		</h2>
+		<div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+			<Button href="/book" variant="primary">Book a Massage</Button>
+			<Button href="/faq" variant="secondary">Have Questions? Read the FAQs</Button>
+		</div>
+	</section>
+</Layout>

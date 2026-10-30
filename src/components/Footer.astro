@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+import emblem from "../assets/images/logo/emblem-transparent.png";
+import { nav, site } from "../data/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-brand-navy text-brand-cream">
+	<div class="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
+		<div class="sm:col-span-2 lg:col-span-1">
+			<a href="/" class="flex items-center gap-3">
+				<Image src={emblem} alt="" width={40} height={40} class="h-9 w-9 shrink-0" />
+				<span class="font-heading text-lg font-semibold">{site.name}</span>
+			</a>
+			<p class="mt-4 max-w-xs font-body text-sm leading-relaxed text-brand-cream/80">
+				{site.catchphrase}
+			</p>
+		</div>
+
+		<div>
+			<h2 class="font-heading text-sm font-semibold tracking-wide text-brand-orange uppercase">
+				Explore
+			</h2>
+			<ul class="mt-4 space-y-2">
+				{
+					nav.map((item) => (
+						<li>
+							<a href={item.href} class="font-heading text-sm text-brand-cream/90 hover:text-brand-orange">
+								{item.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+
+		<div>
+			<h2 class="font-heading text-sm font-semibold tracking-wide text-brand-orange uppercase">
+				Contact
+			</h2>
+			<ul class="mt-4 space-y-2 font-heading text-sm text-brand-cream/90">
+				<li>
+					<a href={site.mailtoGeneral} class="hover:text-brand-orange">{site.email}</a>
+				</li>
+				<li>
+					<a href={site.phoneHref} class="hover:text-brand-orange">{site.phone}</a>
+				</li>
+				<li>
+					<a href={site.addressMapHref} target="_blank" rel="noopener noreferrer" class="hover:text-brand-orange">
+						{site.address}
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<div>
+			<h2 class="font-heading text-sm font-semibold tracking-wide text-brand-orange uppercase">
+				Serving
+			</h2>
+			<p class="mt-4 font-body text-sm leading-relaxed text-brand-cream/80">
+				Home studio visits in Fort Collins, plus mobile massage across {site.serviceArea}.
+			</p>
+		</div>
+	</div>
+
+	<div class="border-t border-brand-cream/15">
+		<div class="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-6 text-xs text-brand-cream/60 sm:flex-row sm:items-center sm:justify-between">
+			<p>&copy; {year} {site.name} &middot; {site.practitioner}</p>
+			<p>Fort Collins, Colorado</p>
+		</div>
+	</div>
+</footer>

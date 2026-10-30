@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+---
+
+<Layout
+	title="Page Not Found"
+	description="The page you're looking for doesn't exist."
+>
+	<section class="mx-auto max-w-2xl px-6 py-28 text-center sm:py-36">
+		<p class="font-heading text-sm font-semibold tracking-[0.2em] text-brand-rust uppercase">404</p>
+		<h1 class="mt-4 font-heading text-4xl font-semibold text-brand-navy sm:text-5xl">
+			Looks like this page wandered off.
+		</h1>
+		<p class="mt-5 font-body leading-relaxed text-brand-navy/80">
+			Let's get you back on solid ground.
+		</p>
+		<Button href="/" variant="primary" class="mt-8">Back to Home</Button>
+	</section>
+</Layout>

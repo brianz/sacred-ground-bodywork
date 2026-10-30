@@ -1,11 +1,156 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import emblem from "../assets/images/logo/emblem-transparent.png";
+import headshot from "../assets/images/jayme-headshot.jpg";
+import { services } from "../data/services";
+import { site } from "../data/site";
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+	title="Massage Therapy in Fort Collins & Northern Colorado"
+	description="Sacred Ground Bodywork offers home-studio and mobile massage across northern Colorado and the Denver metro, plus onsite massage programs for construction crews."
+>
+	<!-- Hero -->
+	<section class="relative overflow-hidden bg-brand-navy text-brand-cream">
+		<Image
+			src={emblem}
+			alt=""
+			width={900}
+			height={900}
+			class="pointer-events-none absolute -right-32 -top-32 h-[32rem] w-[32rem] opacity-10 sm:-right-24 sm:-top-24 md:h-[40rem] md:w-[40rem]"
+		/>
+		<div class="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
+			<div class="max-w-2xl">
+				<p class="font-heading text-sm font-semibold tracking-[0.2em] text-brand-orange uppercase">
+					Fort Collins &middot; Northern Colorado &middot; Denver Metro
+				</p>
+				<h1 class="mt-5 font-body text-4xl italic leading-tight sm:text-5xl md:text-6xl">
+					{site.catchphrase}
+				</h1>
+				<p class="mt-6 max-w-xl font-body text-lg leading-relaxed text-brand-cream/90">
+					Sacred Ground Bodywork exists to care for the bodies that carry us through life.
+					Whether you build Colorado's hospitals or you're just getting through a long week,
+					your body works hard for you &mdash; and it deserves care in return.
+				</p>
+				<div class="mt-10 flex flex-col gap-4 sm:flex-row">
+					<Button href="/book" variant="primary">Book a Massage</Button>
+					<Button href="/construction" variant="outline-light">For Construction Companies</Button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Two paths -->
+	<section class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+		<div class="mx-auto max-w-2xl text-center">
+			<h2 class="font-heading text-3xl font-semibold text-brand-navy sm:text-4xl">
+				Two ways I bring care
+			</h2>
+			<p class="mt-4 font-body text-lg leading-relaxed text-brand-navy/80">
+				However your body works hard, there's a path here for you.
+			</p>
+		</div>
+
+		<div class="mt-14 grid gap-8 md:grid-cols-2">
+			<div class="flex flex-col rounded-3xl border border-brand-sage/50 bg-white/60 p-8 shadow-sm">
+				<h3 class="font-heading text-2xl font-semibold text-brand-navy">For community clients</h3>
+				<p class="mt-4 flex-1 font-body leading-relaxed text-brand-navy/80">
+					Swedish, deep tissue, sports massage, hot stone, cupping, Thai massage, myofascial
+					release, and trigger point therapy &mdash; in my home studio in Fort Collins, or
+					wherever you are across northern Colorado and the Denver metro.
+				</p>
+				<Button href="/book" variant="secondary" class="mt-6 self-start">Book a Session</Button>
+			</div>
+
+			<div class="flex flex-col rounded-3xl border border-brand-sage/50 bg-white/60 p-8 shadow-sm">
+				<h3 class="font-heading text-2xl font-semibold text-brand-navy">For construction companies</h3>
+				<p class="mt-4 flex-1 font-body leading-relaxed text-brand-navy/80">
+					Onsite massage for your crew, built into your employee wellness program. Free to
+					your workers, and a straightforward way to show the people on the job that their
+					work is seen.
+				</p>
+				<Button href="/construction" variant="secondary" class="mt-6 self-start">
+					Learn About the Program
+				</Button>
+			</div>
+		</div>
+	</section>
+
+	<!-- Mission pull-quote -->
+	<section class="bg-brand-sage/20">
+		<div class="mx-auto max-w-4xl px-6 py-20 text-center sm:py-24">
+			<p class="font-body text-2xl italic leading-relaxed text-brand-navy sm:text-3xl">
+				&ldquo;Our bodies carry us through this life, and it's easy to forget about them.
+				Massage helps the body connect with itself again &mdash; and once that happens,
+				real healing can start.&rdquo;
+			</p>
+			<p class="mt-6 font-heading text-sm font-semibold tracking-wide text-brand-rust uppercase">
+				&mdash; Jayme Coleman, LMT
+			</p>
+		</div>
+	</section>
+
+	<!-- About teaser -->
+	<section class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+		<div class="grid items-center gap-12 md:grid-cols-2">
+			<Image
+				src={headshot}
+				alt="Jayme Coleman, LMT, smiling outdoors"
+				width={900}
+				height={675}
+				class="aspect-[4/3] w-full rounded-3xl object-cover shadow-md"
+			/>
+			<div>
+				<h2 class="font-heading text-3xl font-semibold text-brand-navy sm:text-4xl">
+					Meet Jayme
+				</h2>
+				<p class="mt-5 font-body leading-relaxed text-brand-navy/80">
+					I'm a massage therapist and a graduate of the Berkana Institute of Massage Therapy.
+					I came to this work after 14 years at a desk, where I felt the toll poor body
+					mechanics took on me, physically and mentally. That pushed me toward a path of
+					wellness, and toward helping others reconnect with their own well-being.
+				</p>
+				<p class="mt-4 font-body leading-relaxed text-brand-navy/80">
+					I'm a Colorado native living in Fort Collins, and I love nothing more than
+					connecting with people and helping them live their best lives.
+				</p>
+				<Button href="/about" variant="secondary" class="mt-6">Read My Story</Button>
+			</div>
+		</div>
+	</section>
+
+	<!-- Services teaser -->
+	<section class="bg-brand-navy text-brand-cream">
+		<div class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+			<div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+				<h2 class="font-heading text-3xl font-semibold sm:text-4xl">What I Offer</h2>
+				<Button href="/services" variant="outline-light">See All Services &amp; Pricing</Button>
+			</div>
+			<ul class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+				{
+					services.map((service) => (
+						<li class="rounded-xl border border-brand-cream/20 px-4 py-3 text-center font-heading text-sm font-medium">
+							{service.name}
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+
+	<!-- Final CTA -->
+	<section class="mx-auto max-w-4xl px-6 py-20 text-center sm:py-24">
+		<h2 class="font-heading text-3xl font-semibold text-brand-navy sm:text-4xl">
+			Ready to put your body first?
+		</h2>
+		<p class="mt-4 font-body text-lg leading-relaxed text-brand-navy/80">
+			Reach out and let's find a time that works for you.
+		</p>
+		<div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+			<Button href="/book" variant="primary">Book a Massage</Button>
+			<Button href="/faq" variant="secondary">Read the FAQs</Button>
+		</div>
+	</section>
 </Layout>
